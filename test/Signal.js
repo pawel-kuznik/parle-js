@@ -2,7 +2,7 @@
 import { expect } from 'chai'
 
 // get needed classes
-import { Signal, Event } from '../src/parle.js'
+import { Signal, Event } from '../lib/parle.js'
 
 describe('Signal', () => {
     describe('#on', () => {

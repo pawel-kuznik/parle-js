@@ -2,4 +2,4 @@
  *  This test will check if library is exposing proper classes.
  */
 
-import { Event, Dispatcher } from '../src/parle.js'
+import { Event, Dispatcher, Signal } from '../lib/parle.js'

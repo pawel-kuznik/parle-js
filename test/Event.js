@@ -2,7 +2,7 @@
 import { expect } from 'chai'
 
 // the class that is tested
-import { Event } from '../src/Event'
+import { Event } from '../lib/Event'
 
 describe('Event', () => {
     describe('#name', () => {

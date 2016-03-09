@@ -2,7 +2,7 @@
 import { expect } from 'chai'
 
 // the class to test
-import { Dispatcher, Event } from '../src/parle'
+import { Dispatcher, Event } from '../lib/parle'
 
 describe('Dispatcher', () => {
     describe('#on', () => {
