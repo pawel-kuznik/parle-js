@@ -1,6 +1,6 @@
 {
   "name": "parle-js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Event system for server and client",
   "author": "Paweł Kuźnik <pawel.kuznik@gmail.com>",
   "license": "MIT",
