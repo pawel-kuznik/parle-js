@@ -8,16 +8,13 @@ describe('Signal', () => {
     describe('#on', () => {
         it('Signal should increase number of handlers each time a new one is registered', function () {
 
+            // initially signal should of length 0
             var signal = new Signal();
+            expect(signal.length()).to.equal(0);
 
-            // initially we should not have any handlers
-            expect(signal).to.have.property('_handlers').with.length(0);
-
-            // register new handler
+            // after we add a handler signal length should increase to 1
             signal.on(function () { });
-
-            // now we should have at least one handler   
-            expect(signal).to.have.property('_handlers').with.length(1);
+            expect(signal.length()).to.equal(1);
         });
 
         it("Signal should properly handle events that are saying that there should be no further propagation", function () {
@@ -42,8 +39,29 @@ describe('Signal', () => {
     });
 
     describe('#once', () => {
+        it("Signal.once() should increase the signal length", function () {
+    
+            // initially signal should of length 0
+            var signal = new Signal();
+            expect(signal.length()).to.equal(0);
 
-        it("Signal.once() should execute callback only once");
+            // after we add a handler signal length should increase to 1
+            signal.once(function () { });
+            expect(signal.length()).to.equal(1);
+        });
+
+        it("Signal.once() should remove callback after execution", function () {
+            // initialize signal, counter and add handler
+            var signal = new Signal();
+            signal.once(function () { });
+
+            // after we add a handler, length of the signal should increase
+            expect(signal.length()).to.equal(1);
+
+            // after we trigger, signal length should go down to 0
+            signal.trigger();
+            expect(signal.length()).to.equal(0);
+        });
 
         it('Singnal.once() should return same object for chaining', function () {
             var signal = new Signal();

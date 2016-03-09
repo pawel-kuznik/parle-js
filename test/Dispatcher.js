@@ -15,8 +15,7 @@ describe('Dispatcher', () => {
             this.timeout(200);
 
             // install test-event
-            dispatcher.on('test-event', function (event) {
-                
+            dispatcher.on('test-event', function () {
                 done();
             });
 
@@ -42,10 +41,14 @@ describe('Dispatcher', () => {
         it('Remove single handler from the dispatcher', function () {
             // create dispatcher instance
             var dispatcher = new Dispatcher;
+            var handler = function () { throw new Error(); };
 
-            dispatcher.on('test-event', function () { });
+            // add handler and then remove it
+            dispatcher.on('test-event', handler);
+            dispatcher.off('test-event', handler);
 
-            expect(dispatcher).to.have.property('_signals');
+            // and trigger event
+            dispatcher.trigger('test-event', { });
         });
 
         it('dispatcher.off() should return itself for chaining', function () {
