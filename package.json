@@ -19,6 +19,11 @@
   "dependencies": {
     "babel-polyfill": "~6.6.1"
   },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "scripts": {
     "test": "mocha test --compilers js:babel-core/register"
   }
